@@ -361,4 +361,14 @@ def test_operations_invalid_input_types(calc_method, a, b, expected_exception):
     with pytest.raises(expected_exception):
         calc_method(a, b)
 
+@pytest.mark.parametrize("a, b, expected", [
+    (2, 3, 8),
+    (5, 0, 1),
+    (2, -1, 0.5),
+    (9, 0.5, 3.0),
+])
+def test_power(a, b, expected):
+    """Test the power method with various inputs."""
+    assert Operation.power(a, b) == expected
+
 
